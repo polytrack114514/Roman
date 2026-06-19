@@ -245,6 +245,84 @@
             border-bottom-style: solid;
         }
 
+        .form-section {
+            background: linear-gradient(135deg, rgba(30, 40, 80, 0.8), rgba(20, 30, 60, 0.8));
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(100, 150, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #90caf9;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(100, 150, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(10, 20, 50, 0.6);
+            color: #e0e6ed;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 15px rgba(100, 181, 246, 0.3);
+        }
+
+        .form-group input::placeholder {
+            color: #78909c;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #64b5f6, #42a5f5);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(100, 181, 246, 0.6);
+        }
+
+        .activity-info {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(238, 90, 36, 0.1));
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(69, 160, 73, 0.1));
+            border: 2px solid #4caf50;
+            color: #81c784;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2em; }
             .section { padding: 25px; }
@@ -400,6 +478,51 @@
         </div>
 
         <div class="section">
+            <h2>🚀 将您的名字送上太空！</h2>
+            <div class="activity-info">
+                <h3 style="color: #ff6b6b; margin-bottom: 10px;">Send Your Name with Nancy Roman</h3>
+                <p>NASA 邀请公众参与这项历史性活动——将您的名字刻录在微型芯片上，随罗曼太空望远镜一起发射升空！</p>
+                <br>
+                <p><strong>活动亮点：</strong></p>
+                <ul style="margin-left: 20px; color: #b0bec5;">
+                    <li>完全免费参与</li>
+                    <li>获得个性化电子"登机牌"作为纪念</li>
+                    <li>您的名字将随望远镜在太空中运行多年</li>
+                    <li>发射日期：2026年8月30日</li>
+                </ul>
+            </div>
+
+            <h3 style="color: #90caf9; margin: 30px 0 20px 0;">立即报名</h3>
+            <form id="nameForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="firstName">名字 (First Name) *</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="请输入您的名字" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">姓氏 (Last Name) *</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="请输入您的姓氏" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">电子邮箱 (Email) *</label>
+                    <input type="email" id="email" name="email" placeholder="请输入您的邮箱地址" required>
+                </div>
+                <div class="form-group">
+                    <label for="postalCode">邮政编码 (Postal Code)</label>
+                    <input type="text" id="postalCode" name="postalCode" placeholder="选填">
+                </div>
+                <button type="submit" class="submit-btn">提交报名 →</button>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                ✅ 报名成功！您的信息已记录，我们将协助您完成 NASA 官方报名流程。
+            </div>
+
+            <p style="margin-top: 20px; color: #78909c; font-size: 0.9em;">
+                注：此表单用于收集报名信息，实际提交需前往 <a href="https://my.nasa.gov/specialevents/s/send-your-name-with-nancy-roman" class="nasa-link" target="_blank">NASA 官方网站</a> 完成。
+            </p>
+        </div>
+
+        <div class="section">
             <h2>🔗 了解更多</h2>
             <p>访问以下官方资源获取最新信息：</p>
             <br>
@@ -407,6 +530,7 @@
             <p>📷 <a href="https://www.flickr.com/photos/195562936@N08/" class="nasa-link" target="_blank">官方图片库</a></p>
             <p>🎮 <a href="https://science.nasa.gov/mission/roman-space-telescope/the-roman-space-observer-game/" class="nasa-link" target="_blank">罗曼太空观测者游戏</a></p>
             <p>📚 <a href="https://roman-docs.stsci.edu/" class="nasa-link" target="_blank">技术文档中心</a></p>
+            <p>✈️ <a href="https://my.nasa.gov/specialevents/s/send-your-name-with-nancy-roman" class="nasa-link" target="_blank">Send Your Name 活动页面</a></p>
         </div>
 
         <footer>
@@ -414,5 +538,43 @@
             <p>由 GitHub 用户 polytrack114514 创建</p>
         </footer>
     </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const postalCode = document.getElementById('postalCode').value;
+
+            // 存储到 localStorage
+            const submission = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                postalCode: postalCode,
+                timestamp: new Date().toISOString()
+            };
+
+            let submissions = JSON.parse(localStorage.getItem('romanSubmissions') || '[]');
+            submissions.push(submission);
+            localStorage.setItem('romanSubmissions', JSON.stringify(submissions));
+
+            // 显示成功消息
+            document.getElementById('successMessage').style.display = 'block';
+
+            // 重置表单
+            document.getElementById('nameForm').reset();
+
+            // 3秒后隐藏成功消息
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+
+            // 同时打开 NASA 官方页面
+            window.open('https://my.nasa.gov/specialevents/s/send-your-name-with-nancy-roman', '_blank');
+        }
+    </script>
 </body>
 </html>
